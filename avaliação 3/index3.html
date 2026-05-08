@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lados de um Triângulo</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    input, button { padding: 10px; margin: 10px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Programa Lados de um Triângulo</h1>
+  <label>Lado A: </label><input type="number" id="a"><br>
+  <label>Lado B: </label><input type="number" id="b"><br>
+  <label>Lado C: </label><input type="number" id="c"><br><br>
+  <button onclick="verificarTriangulo()">Verificar Lados</button>
+  <p id="resultado"></p>
+
+  <script>
+    function verificarTriangulo() {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      const c = parseFloat(document.getElementById('c').value);
+      const res = document.getElementById('resultado');
+
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        res.innerHTML = "Digite todos os lados!";
+        return;
+      }
+
+      // Verifica se forma triângulo
+      if (a + b > c && a + c > b && b + c > a) {
+        let tipo = "";
+        if (a === b && b === c) tipo = "Equilátero";
+        else if (a === b || b === c || a === c) tipo = "Isósceles";
+        else tipo = "Escaleno";
+
+        res.innerHTML = `Lados podem formar um triângulo.<br><strong>Tipo: ${tipo}</strong>`;
+      } else {
+        res.innerHTML = "❌ Os lados <strong>NÃO</strong> formam um triângulo.";
+      }
+    }
+  </script>
+</body>
+</html>

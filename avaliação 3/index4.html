@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maior Número</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+    input, button { padding: 10px; margin: 10px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Maior entre Três Números</h1>
+  <label>Número 1: </label><input type="number" id="n1"><br>
+  <label>Número 2: </label><input type="number" id="n2"><br>
+  <label>Número 3: </label><input type="number" id="n3"><br><br>
+  <button onclick="encontrarMaior()">Encontrar Maior</button>
+  <p id="resultado"></p>
+
+  <script>
+    function encontrarMaior() {
+      const n1 = parseFloat(document.getElementById('n1').value);
+      const n2 = parseFloat(document.getElementById('n2').value);
+      const n3 = parseFloat(document.getElementById('n3').value);
+      const res = document.getElementById('resultado');
+
+      if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+        res.innerHTML = "Digite os três números!";
+        return;
+      }
+
+      const maior = Math.max(n1, n2, n3);
+      res.innerHTML = `O maior número é: <strong>${maior}</strong>`;
+    }
+  </script>
+</body>
+</html>
